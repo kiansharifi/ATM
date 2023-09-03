@@ -87,4 +87,16 @@ public class ATM
         }
         return false;
     }
+    
+    public void audit () throws IOException
+    {
+        FileWriter file = new FileWriter ("AccountAudit.txt", false);
+        PrintWriter printer = new PrintWriter (file);
+        for (String user : accounts.keySet ())
+        {
+            printer.write ("UserID: " + user + " -  Balance: " + accounts.get (user) + "\n");
+        }
+        file.close();
+        printer.close();
+    }
 }
