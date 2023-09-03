@@ -57,4 +57,21 @@ public class ATM
             throw new Exception ("You're broke lol");
         }
     }
+    
+    public double withdrawMoney (String userID, double amount) throws Exception
+    {
+        if (accounts.containsKey (userID))
+        {
+            if (accounts.get (userID) >= amount)
+            {
+                accounts.put (userID, accounts.get (userID) - amount);
+            }
+        }
+        else
+        {
+            throw new Exception ("You're broke lol");
+        }
+        return amount;
+    }
+
 }
