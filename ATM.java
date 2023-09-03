@@ -73,5 +73,18 @@ public class ATM
         }
         return amount;
     }
-
+    
+    public boolean transferMoney (String fromAccount, String toAccount, double amount)
+    {
+        if (accounts.containsKey (fromAccount) && accounts.containsKey (toAccount))
+        {
+            if (accounts.get (fromAccount) >= amount)
+            {
+                accounts.put (fromAccount, accounts.get (fromAccount) - amount);
+                accounts.put (toAccount, accounts.get (toAccount) + amount);
+                return true;
+            }
+        }
+        return false;
+    }
 }
