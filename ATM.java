@@ -18,4 +18,18 @@ public class ATM
             accounts.put (userID, amount);
         }
     }
+    
+    public void closeAccount (String userID) throws Exception
+    {
+        double balance = accounts.get (userID);
+        if (balance > 0)
+        {
+            throw new Exception ("You need to withdraw your money before closing the account!");
+        }
+        else
+        {
+            accounts.remove (userID);
+            System.out.println ("Account closed.");
+        }
+    }
 }
