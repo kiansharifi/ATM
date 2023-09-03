@@ -44,4 +44,17 @@ public class ATM
             throw new Exception ("User not found.");
         }
     }
+    
+    public double depositMoney (String userID, double amount) throws Exception
+    {
+        if (accounts.containsKey (userID))
+        {
+            accounts.put (userID, amount + accounts.get (userID));
+            return amount;
+        }
+        else
+        {
+            throw new Exception ("You're broke lol");
+        }
+    }
 }
