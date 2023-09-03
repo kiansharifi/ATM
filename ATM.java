@@ -32,4 +32,16 @@ public class ATM
             System.out.println ("Account closed.");
         }
     }
+    
+    public double checkBalance (String userID) throws Exception
+    {
+        if (accounts.containsKey (userID))
+        {
+            return accounts.get (userID);
+        }
+        else
+        {
+            throw new Exception ("User not found.");
+        }
+    }
 }
